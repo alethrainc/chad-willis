@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chad Willis | Founder • Operator • Family Steward</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Canela', 'Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        neutral: {
+                            50: '#F9FAFB',
+                            100: '#F3F4F6',
+                            200: '#E5E7EB',
+                            300: '#D1D5DB',
+                            400: '#9CA3AF',
+                            500: '#6B7280',
+                            600: '#4B5563',
+                            700: '#374151',
+                            800: '#1F2937',
+                            900: '#111111', // Near black as requested
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities to enforce strict typography rules */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Simulating the placeholder look */
+        .photo-placeholder {
+            background-color: #E5E5E5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, transparent 48%, #D1D5DB 49%, #D1D5DB 51%, transparent 52%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+
+        /* Fade transition for router */
+        #app {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900 font-sans flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm w-full border-b border-transparent transition-all duration-300" id="navbar">
+        <div class="max-w-5xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center">
+            <a href="/" data-link class="text-xl tracking-widest uppercase font-medium mb-4 md:mb-0 hover:text-neutral-600 transition-colors">
+                Chad Willis
+            </a>
+            <div class="flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="/about" data-link class="nav-item text-neutral-500 hover:text-neutral-900 transition-colors">About</a>
+                <a href="/work" data-link class="nav-item text-neutral-500 hover:text-neutral-900 transition-colors">Work</a>
+                <a href="/principles" data-link class="nav-item text-neutral-500 hover:text-neutral-900 transition-colors">Principles</a>
+                <a href="/contact" data-link class="nav-item text-neutral-500 hover:text-neutral-900 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area (SPA Router Target) -->
+    <main id="app" class="flex-grow w-full max-w-4xl mx-auto px-6 py-12 md:py-20 opacity-100">
+        <!-- Content injected via JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-100 mt-auto">
+        <div class="max-w-5xl mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-wider space-y-4 md:space-y-0">
+                <div>
+                    &copy; Chad Willis
+                </div>
+                <div class="flex space-x-6">
+                    <a href="/statement" data-link class="hover:text-neutral-900">Statement</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Router & Content -->
+    <script>
+        // Content Data
+        const content = {
+            '/': `
+                <div class="space-y-16 animate-fade-in">
+                    <!-- Hero -->
+                    <section class="text-center md:text-left space-y-6 max-w-3xl">
+                        <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500 mb-2">Founder • Operator • Family Steward</h2>
+                        <h1 class="font-serif text-4xl md:text-6xl leading-tight text-neutral-900">
+                            I build patented technologies and consumer brands with a focus on clarity, disciplined execution, and long-term value.
+                        </h1>
+                        <p class="font-sans text-lg text-neutral-600 max-w-2xl leading-relaxed">
+                            Family first. Work that lasts. Built for the long run.
+                        </p>
+                        <div class="pt-4 flex gap-4 justify-center md:justify-start">
+                            <a href="/about" data-link class="border border-neutral-900 px-8 py-3 text-xs uppercase tracking-widest hover:bg-neutral-900 hover:text-white transition-colors duration-300">About</a>
+                            <a href="/work" data-link class="border border-neutral-900 px-8 py-3 text-xs uppercase tracking-widest hover:bg-neutral-900 hover:text-white transition-colors duration-300">Work</a>
+                        </div>
+                    </section>
+
+                    <!-- Home Main Image -->
+                    <div class="w-full overflow-hidden bg-neutral-100">
+                        <img src="https://plusbrand.com/wp-content/uploads/2025/12/IMG_3275.jpeg" alt="Chad Willis" class="w-full h-auto">
+                    </div>
+
+                    <!-- Intro Text -->
+                    <section>
+                        <div class="max-w-3xl space-y-6 text-neutral-800 leading-relaxed">
+                            <p>I’m Chad Willis—an entrepreneur and founder focused on building real systems, real products, and durable value over time.</p>
+                            <p>My work centers on reducing confusion, improving verification, and creating brands and technologies designed to operate responsibly in the real world. I prioritize disciplined execution, documented process, and outcomes that hold up under scrutiny.</p>
+                            <p>I value quiet execution over noise, documentation over explanation, and long-term trust over short-term attention.</p>
+                            <p>Everything I build is shaped by the same priorities I hold at home: integrity, accountability, and stewardship.</p>
+                            <p>My family is the reason I build carefully, choose partners intentionally, and focus on work that stands up over time. Legacy isn’t about speed or visibility—it’s about doing things the right way and leaving something solid behind.</p>
+                        </div>
+                    </section>
+
+                    <section class="space-y-8 border-t border-neutral-200 pt-8">
+                         <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <h3 class="font-serif text-2xl">My work includes:</h3>
+                                <ul class="space-y-4 text-neutral-700 list-none">
+                                    <li class="pl-4 border-l border-neutral-300">Founder and CEO of Plus Brand Industries</li>
+                                    <li class="pl-4 border-l border-neutral-300">Creator of the All-Scratch! confusion-prevention technology</li>
+                                    <li class="pl-4 border-l border-neutral-300">Builder of consumer brands with national and international reach</li>
+                                    <li class="pl-4 border-l border-neutral-300">Ongoing work in clarity and verification systems across complex industries</li>
+                                </ul>
+                                <p class="text-neutral-600 pt-2 italic">Details live where they belong. This site is about principles and record.</p>
+                                <div class="pt-4">
+                                    <a href="/work" data-link class="text-sm underline underline-offset-4 hover:text-neutral-500 transition-colors">View Work &rarr;</a>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="font-serif text-2xl">Principles I operate by:</h3>
+                                <ul class="space-y-4 text-neutral-700 list-none">
+                                    <li class="pl-4 border-l border-neutral-300">Truth over theatrics</li>
+                                    <li class="pl-4 border-l border-neutral-300">Execution over explanation</li>
+                                    <li class="pl-4 border-l border-neutral-300">Document the work</li>
+                                    <li class="pl-4 border-l border-neutral-300">Build systems, not stories</li>
+                                    <li class="pl-4 border-l border-neutral-300">Protect the downside; earn the upside</li>
+                                    <li class="pl-4 border-l border-neutral-300">Family always comes first</li>
+                                </ul>
+                                <div class="pt-4">
+                                    <a href="/principles" data-link class="text-sm underline underline-offset-4 hover:text-neutral-500 transition-colors">Read Principles &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Additional Image -->
+                    <div class="w-full mt-12 overflow-hidden bg-neutral-100">
+                        <img src="https://plusbrand.com/wp-content/uploads/2025/12/fd52ddd0-5ace-480c-b2c5-c8d559073d60.jpeg" alt="Atmospheric Detail" class="w-full h-auto">
+                    </div>
+
+                    <section class="bg-neutral-50 p-12 text-center space-y-6 mt-12">
+                        <p class="font-serif text-2xl text-neutral-800">I believe trust is built quietly, over time, through consistent action.</p>
+                        <p class="text-neutral-600">If our values align and the work matters, I’m open to the right conversation.</p>
+                        <div class="pt-4">
+                             <a href="/contact" data-link class="border border-neutral-900 px-8 py-3 text-xs uppercase tracking-widest hover:bg-neutral-900 hover:text-white transition-colors duration-300">Contact</a>
+                        </div>
+                    </section>
+                </div>
+            `,
+            '/about': `
+                <div class="space-y-12 animate-fade-in">
+                    <header class="space-y-4 pb-8 border-b border-neutral-100">
+                        <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">About</h2>
+                        <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Operator mindset. Family values. Long-term build.</h1>
+                    </header>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-start">
+                        <div class="space-y-6 text-neutral-800 leading-relaxed">
+                            <p class="text-lg font-medium">I’m Chad Willis—an entrepreneur, founder, and operator focused on building real systems, real products, and durable value over time.</p>
+                            <p>I lead with discipline, clarity, and respect for process. My work centers on reducing confusion, improving verification, and creating technologies and consumer brands designed to operate responsibly in the real world. I prioritize execution that holds up under scrutiny, intellectual property that is properly protected, and partnerships built on professionalism and trust.</p>
+                            <p>I prefer quiet execution over noise. Documentation over explanation. Fundamentals over theatrics.</p>
+                            <p>Durable businesses are built through patience, consistency, and decisions that remain sound long after attention fades.</p>
+                        </div>
+                        
+                        <!-- About Page Placeholder -->
+                        <div class="w-full aspect-[4/5] photo-placeholder grayscale">
+                            <span class="z-10 bg-white/80 px-4 py-2 backdrop-blur-sm">Portrait Placeholder</span>
+                        </div>
+                    </div>
+
+                    <div class="max-w-3xl space-y-6 text-neutral-800 leading-relaxed pt-8">
+                        <h3 class="font-serif text-2xl mb-4">Family & Stewardship</h3>
+                        <p>Family is the center of my life and the lens through which I make decisions. Stewardship—at home and at work—means thinking beyond yourself, weighing risk carefully, and prioritizing integrity over convenience. Legacy isn’t about speed or visibility. It’s about doing the work correctly and leaving something solid behind.</p>
+                    </div>
+
+                    <div class="bg-neutral-50 p-8 space-y-6">
+                        <h3 class="font-serif text-2xl">Current Focus</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="h-1.5 w-1.5 rounded-full bg-neutral-400 mt-2"></span>
+                                <span>Building and protecting meaningful intellectual property</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="h-1.5 w-1.5 rounded-full bg-neutral-400 mt-2"></span>
+                                <span>Scaling products and systems responsibly</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="h-1.5 w-1.5 rounded-full bg-neutral-400 mt-2"></span>
+                                <span>Working with partners who value clarity, governance, and execution</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="h-1.5 w-1.5 rounded-full bg-neutral-400 mt-2"></span>
+                                <span>Long-term stewardship, leadership, and legacy planning</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="text-center text-neutral-500 italic pt-8">Trust is earned through consistent action over time.<br>If our values align and the work matters, I’m open to the right conversations.</p>
+                </div>
+            `,
+            '/work': `
+                <div class="space-y-12 animate-fade-in">
+                    <header class="space-y-4 pb-8 border-b border-neutral-100">
+                        <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Work</h2>
+                        <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Selected Work</h1>
+                        <p class="max-w-2xl text-neutral-600 leading-relaxed">My work focuses on building systems, technologies, and consumer brands designed to reduce confusion, improve verification, and operate responsibly at scale. I emphasize long-term value creation through disciplined execution, intellectual property protection, and thoughtful partnerships.</p>
+                    </header>
+
+                    <!-- Work Main Image -->
+                    <div class="w-full overflow-hidden mb-12 bg-neutral-100">
+                        <img src="https://plusbrand.com/wp-content/uploads/2025/12/IMG_3288.jpeg" alt="Selected Work Detail" class="w-full h-auto">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-12">
+                        
+                        <div class="space-y-4">
+                            <h3 class="font-serif text-2xl text-neutral-900">Plus Brand Industries</h3>
+                            <p class="text-xs uppercase tracking-widest text-neutral-500">Founder & Chief Executive Officer</p>
+                            <p class="text-neutral-700 leading-relaxed">Plus Brand Industries is a consumer and technology company built around clarity, brand integrity, and disciplined operations. The company develops and operates consumer brands while supporting the deployment of proprietary technologies in real-world environments. The focus is on repeatable execution, compliance, and long-term brand equity.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="font-serif text-2xl text-neutral-900">All-Scratch!</h3>
+                            <p class="text-xs uppercase tracking-widest text-neutral-500">Creator</p>
+                            <p class="text-neutral-700 leading-relaxed">All-Scratch! is a confusion-prevention technology designed to reduce misidentification and improve verification in physical products and environments. The system was built for real-world deployment, prioritizing practicality, durability, and scalability across consumer and operational use cases.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="font-serif text-2xl text-neutral-900">Agua Plus</h3>
+                            <p class="text-xs uppercase tracking-widest text-neutral-500">Brand Owner</p>
+                            <p class="text-neutral-700 leading-relaxed">Agua Plus is a consumer brand developed with an emphasis on premium positioning, operational consistency, and disciplined growth. The brand has achieved national and international reach while maintaining a focus on integrity, quality, and responsible execution.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="font-serif text-2xl text-neutral-900">ALETHRA™</h3>
+                            <p class="text-xs uppercase tracking-widest text-neutral-500">Founder</p>
+                            <p class="text-neutral-700 leading-relaxed">ALETHRA™ is an emerging clarity and verification platform designed to reduce confusion in complex systems where errors carry human, financial, and environmental consequences. This work reflects a long-term commitment to building technology that improves outcomes, protects resources, and supports trust across industries.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="border-t border-neutral-200 pt-12 text-center space-y-4">
+                        <p class="font-serif text-xl text-neutral-800">I work with partners who value clarity, professionalism, and execution.</p>
+                        <p class="text-neutral-600">Alignment on principles matters.<br>I build with the intention that the work will stand on its own—quietly, responsibly, and over time.</p>
+                    </div>
+                </div>
+            `,
+            '/principles': `
+                <div class="space-y-12 animate-fade-in">
+                    <header class="space-y-4 pb-8 border-b border-neutral-100">
+                        <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Principles</h2>
+                        <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Principles I operate by.</h1>
+                        <p class="max-w-2xl text-neutral-600 leading-relaxed">These principles guide how I lead, who I partner with, and what I choose to build. They are shaped by experience, responsibility, and a long-term view.</p>
+                    </header>
+
+                    <div class="max-w-3xl mx-auto space-y-8">
+                        <div class="space-y-6">
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">01</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Truth over theatrics</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">02</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Execution over explanation</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">03</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Document the work</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">04</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Build systems, not stories</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">05</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Protect the downside; earn the upside</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">06</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Respect process and governance</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">07</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Build technology that improves human outcomes</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">08</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Stewardship over ego</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">09</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Long-term trust compounds</h3>
+                            </div>
+                            <div class="flex items-baseline gap-4 border-b border-neutral-100 pb-4">
+                                <span class="font-mono text-neutral-300 text-sm">10</span>
+                                <h3 class="font-medium text-lg text-neutral-900">Family always comes first</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-900 text-neutral-200 p-12 text-center mt-12 rounded-sm">
+                        <p class="font-serif text-2xl italic mb-4">"Principles don’t change with trends."</p>
+                        <p class="text-sm uppercase tracking-widest text-neutral-400">They guide decisions when pressure is highest and visibility is lowest.</p>
+                    </div>
+                </div>
+            `,
+            '/contact': `
+                <div class="space-y-12 animate-fade-in max-w-2xl mx-auto">
+                    <header class="text-center space-y-4 pb-8">
+                        <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Contact</h2>
+                        <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Contact</h1>
+                        <p class="text-neutral-600 leading-relaxed">For professional inquiries, media requests, or partnership discussions, please use the appropriate channel below. Messages are reviewed and routed accordingly.</p>
+                    </header>
+
+                    <div class="space-y-8">
+                        <div class="group border border-neutral-200 p-6 hover:border-neutral-900 transition-colors">
+                            <h3 class="font-serif text-xl mb-2">Business & Partnerships</h3>
+                            <a href="mailto:partnership@chadwillis.com" class="text-sm text-neutral-500 hover:text-neutral-900 underline underline-offset-4">partnership@chadwillis.com</a>
+                        </div>
+                        <div class="group border border-neutral-200 p-6 hover:border-neutral-900 transition-colors">
+                            <h3 class="font-serif text-xl mb-2">Media</h3>
+                            <a href="mailto:media@chadwillis.com" class="text-sm text-neutral-500 hover:text-neutral-900 underline underline-offset-4">media@chadwillis.com</a>
+                        </div>
+                        <div class="group border border-neutral-200 p-6 hover:border-neutral-900 transition-colors">
+                            <h3 class="font-serif text-xl mb-2">Legal</h3>
+                            <a href="mailto:legal@chadwillis.com" class="text-sm text-neutral-500 hover:text-neutral-900 underline underline-offset-4">legal@chadwillis.com</a>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-8 border-t border-neutral-100">
+                        <p class="text-xs uppercase tracking-wider text-neutral-400">Serious inquiries only. Please be clear and concise.</p>
+                    </div>
+                </div>
+            `,
+            '/statement': `
+                <div class="space-y-8 animate-fade-in max-w-3xl mx-auto">
+                    <header class="space-y-4 pb-8 border-b border-neutral-100">
+                        <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Statement of Record</h2>
+                        <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Founder Statement</h1>
+                    </header>
+
+                    <div class="prose prose-neutral max-w-none text-neutral-800 leading-relaxed">
+                        <p class="font-medium italic">This statement is provided for clarity and record.</p>
+                        
+                        <p>I am Chad Willis—Founder and CEO of Plus Brand Industries, creator of the All-Scratch! confusion-prevention technology, and owner of consumer brands with national and international reach.</p>
+                        
+                        <p>Over the course of building my companies, I have remained focused on execution, intellectual property development, and responsible operations. As those companies gained traction, individuals connected to an old, unrelated matter from decades ago attempted to resurface that matter and apply pressure.</p>
+                        
+                        <p>This matter is unrelated to my businesses, technologies, products, or performance. It predates my companies entirely and has no connection to their operations, patents, or brands. It is being addressed appropriately and brought to closure through proper channels.</p>
+                        
+                        <p>I chose not to engage publicly at the time. I chose to continue operating, documenting the work, and allowing process to function as intended.</p>
+                        
+                        <p>I believe in transparency, accountability, and respect for institutions and governance. Interference and pressure have no place in legitimate business.</p>
+                        
+                        <p>This statement is not about revisiting the past. It is about clarity.</p>
+                        
+                        <p>I remain focused on building responsibly, protecting the people and partners who depend on the work, and moving forward without distraction.</p>
+                        
+                        <div class="bg-neutral-50 p-6 mt-8 border-l-4 border-neutral-300">
+                            <p class="text-sm mb-2">This statement is provided as a matter of record.</p>
+                            <p class="text-sm mb-0">No further public commentary will be offered on this subject.</p>
+                            <p class="text-xs text-neutral-400 mt-4 uppercase tracking-widest">Date: December 14, 2025</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        // Router Logic
+        const navigateTo = url => {
+            // content is an object, so we can check if the route exists
+            // prevent default behavior is handled in the click listener
+            
+            // history.pushState(null, null, url); // REMOVED to prevent SecurityError in sandbox
+            renderPage(url);
+        };
+
+        const renderPage = url => {
+            const app = document.getElementById('app');
+            // Normalize path if needed, but since we are intercepting clicks, 'url' is exactly what we want (e.g., '/about')
+            const route = url; 
+            
+            // Fade out effect
+            app.classList.add('fade-out');
+
+            setTimeout(() => {
+                app.innerHTML = content[route] || content['/'];
+                window.scrollTo(0, 0);
+                app.classList.remove('fade-out');
+                
+                // Update active nav state
+                document.querySelectorAll('.nav-item').forEach(link => {
+                    if (link.getAttribute('href') === route) {
+                        link.classList.remove('text-neutral-500');
+                        link.classList.add('text-neutral-900', 'underline', 'underline-offset-4');
+                    } else {
+                        link.classList.add('text-neutral-500');
+                        link.classList.remove('text-neutral-900', 'underline', 'underline-offset-4');
+                    }
+                });
+            }, 300); // Wait for fade out
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.addEventListener('click', e => {
+                const link = e.target.closest('[data-link]');
+                if (link) {
+                    e.preventDefault();
+                    navigateTo(link.getAttribute('href'));
+                }
+            });
+
+            // Handle Initial Load
+            // In a blob environment, pathname might be complex. Default to '/' if it doesn't match a known route.
+            const initialPath = content[location.pathname] ? location.pathname : '/';
+            renderPage(initialPath);
+        });
+    </script>
+</body>
+</html>
