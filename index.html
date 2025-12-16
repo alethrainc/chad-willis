@@ -123,14 +123,16 @@
         </div>
     </footer> 
 
-    <!-- JavaScript Router & Content -->
+   <!-- JavaScript Router & Content -->
     <script>
         // Content Data
         const content = {
             '/': `
-                <div class="space-y-16 animate-fade-in">
-                    <!-- Hero Section (Standalone) -->
-                    <section class="text-center md:text-left space-y-6 max-w-4xl mx-auto">
+                <!-- UNIFORM SPACING WRAPPER: space-y-12 (48px) mobile / space-y-16 (64px) desktop -->
+                <div class="space-y-12 md:space-y-16 animate-fade-in">
+                    
+                    <!-- Hero Section -->
+                    <section class="text-left space-y-6 max-w-4xl mx-auto">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500 mb-2">Founder • Operator • Family Steward</h2>
                         <h1 class="font-serif text-4xl md:text-6xl leading-tight text-neutral-900">
                             I build patented technologies and consumer brands with a focus on clarity, disciplined execution, and long term value.
@@ -138,16 +140,15 @@
                         <p class="font-sans text-lg text-neutral-600 max-w-2xl leading-relaxed">
                             Family first. Work that lasts. Built for the long run.
                         </p>
-                        <div class="pt-4 flex gap-4 justify-center md:justify-start">
+                        <div class="pt-4 flex gap-4 justify-start">
                             <a href="/about" data-link class="border border-neutral-900 px-8 py-3 text-xs uppercase tracking-widest hover:bg-neutral-900 hover:text-white transition-colors duration-300">About</a>
                             <a href="/work" data-link class="border border-neutral-900 px-8 py-3 text-xs uppercase tracking-widest hover:bg-neutral-900 hover:text-white transition-colors duration-300">Work</a>
                         </div>
                     </section>
 
-                    <!-- Intro Text & Image Grid -->
-                    <section class="grid md:grid-cols-12 gap-12 items-center pt-4">
-                        <!-- Left Column: Text -->
-                        <div class="md:col-span-6 space-y-6 text-neutral-800 leading-relaxed text-center md:text-left order-2 md:order-1">
+                    <!-- Intro Grid (Removed extra top padding to rely on parent spacing) -->
+                    <section class="grid md:grid-cols-12 gap-12 items-center">
+                        <div class="md:col-span-6 space-y-6 text-neutral-800 leading-relaxed text-left order-2 md:order-1">
                             <p>I’m Chad Willis, an entrepreneur and founder focused on building real systems, real products, and durable value over time.</p>
                             <p>My work centers on reducing confusion, improving verification, and creating brands and technologies designed to operate responsibly in the real world. I prioritize disciplined execution, documented process, and outcomes that hold up under scrutiny.</p>
                             <p>I value quiet execution over noise, documentation over explanation, and long term trust over short term attention.</p>
@@ -155,14 +156,14 @@
                             <p>My family is the reason I build carefully, choose partners intentionally, and focus on work that stands up over time. Legacy isn’t about speed or visibility, it’s about doing things the right way and leaving something solid behind.</p>
                         </div>
                         
-                        <!-- Right Column: Image -->
                         <div class="md:col-span-6 w-full p-4 bg-neutral-100 order-1 md:order-2">
                             <img src="https://plusbrand.com/wp-content/uploads/2025/12/IMG_3275.jpeg" alt="Chad Willis" class="w-full h-auto block">
                         </div>
                     </section>
 
+                    <!-- Details Section (Kept border-t and padding for visual separation) -->
                     <section class="space-y-8 border-t border-neutral-200 pt-8">
-                         <div class="grid md:grid-cols-2 gap-8">
+                         <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                             <div class="space-y-4">
                                 <h3 class="font-serif text-2xl">My work includes:</h3>
                                 <ul class="space-y-4 text-neutral-700 list-none">
@@ -193,7 +194,8 @@
                         </div>
                     </section>
 
-                    <section class="bg-neutral-50 p-12 text-center space-y-6 mt-12">
+                    <!-- Bottom CTA (Removed mt-12, relying on parent space-y-12) -->
+                    <section class="bg-neutral-50 p-8 md:p-12 text-left space-y-6">
                         <p class="font-serif text-2xl text-neutral-800">I believe trust is built quietly, over time, through consistent action.</p>
                         <p class="text-neutral-600">If our values align and the work matters, I’m open to the right conversation.</p>
                         <div class="pt-4">
@@ -203,7 +205,9 @@
                 </div>
             `,
             '/about': `
-                <div class="space-y-12 animate-fade-in">
+                <!-- UNIFORM SPACING WRAPPER -->
+                <div class="space-y-12 md:space-y-16 animate-fade-in">
+                    
                     <header class="space-y-4 pb-8 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">About</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Operator mindset. Family values. Long term build.</h1>
@@ -217,18 +221,17 @@
                             <p>Beyond business, Chad views building as a responsibility, to customers, partners, and the next generation. His work is guided by a belief that clarity matters, execution compounds, and enduring value is created through consistency, not noise.</p>
                         </div>
                         
-                        <!-- Replaced Image -->
                         <div class="w-full p-4 bg-neutral-100">
                             <img src="https://plusbrand.com/wp-content/uploads/2025/12/IMG_3293-1.jpeg" alt="Chad Willis" class="w-full h-auto block">
                         </div>
                     </div>
 
-                    <div class="max-w-3xl space-y-6 text-neutral-800 leading-relaxed pt-8">
+                    <div class="max-w-3xl space-y-6 text-neutral-800 leading-relaxed pt-2">
                         <h3 class="font-serif text-2xl mb-4">Family & Stewardship</h3>
                         <p>Family is the center of my life and the lens through which I make decisions. Stewardship, at home and at work, means thinking beyond yourself, weighing risk carefully, and prioritizing integrity over convenience. Legacy isn’t about speed or visibility. It’s about doing the work correctly and leaving something solid behind. - Chad Willis</p>
                     </div>
 
-                    <div class="bg-neutral-50 p-8 space-y-6">
+                    <div class="bg-neutral-50 p-8 md:p-12 space-y-6">
                         <h3 class="font-serif text-2xl">Current Focus</h3>
                         <ul class="space-y-3">
                             <li class="flex items-start gap-3">
@@ -250,7 +253,8 @@
                         </ul>
                     </div>
 
-                    <section class="bg-neutral-50 p-12 text-center space-y-6 mt-12">
+                    <!-- Bottom CTA (Removed margins) -->
+                    <section class="bg-neutral-50 p-8 md:p-12 text-left space-y-6">
                         <p class="font-serif text-2xl text-neutral-800">Trust is earned through consistent action over time.</p>
                         <p class="text-neutral-600">If our values align and the work matters, I’m open to the right conversations.</p>
                         <div class="pt-4">
@@ -260,7 +264,9 @@
                 </div>
             `,
             '/work': `
-                <div class="space-y-12 animate-fade-in">
+                <!-- UNIFORM SPACING WRAPPER -->
+                <div class="space-y-12 md:space-y-16 animate-fade-in">
+                    
                     <header class="space-y-4 pb-8 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Work</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Selected Work</h1>
@@ -296,7 +302,8 @@
 
                     </div>
 
-                    <section class="bg-neutral-50 p-12 text-center space-y-6 mt-12">
+                    <!-- Bottom CTA (Removed margins) -->
+                    <section class="bg-neutral-50 p-8 md:p-12 text-left space-y-6">
                         <p class="font-serif text-2xl text-neutral-800">I work with partners who value clarity, professionalism, and execution.</p>
                         <p class="text-neutral-600">Alignment on principles matters.<br>I build with the intention that the work will stand on its own, quietly, responsibly, and over time.</p>
                         <div class="pt-4">
@@ -306,7 +313,9 @@
                 </div>
             `,
             '/principles': `
-                <div class="space-y-12 animate-fade-in">
+                <!-- UNIFORM SPACING WRAPPER -->
+                <div class="space-y-12 md:space-y-16 animate-fade-in">
+                    
                     <header class="space-y-4 pb-8 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Principles</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Principles I operate by.</h1>
@@ -358,7 +367,8 @@
                         </div>
                     </div>
 
-                    <section class="bg-neutral-50 p-12 text-center space-y-6 mt-12">
+                    <!-- Bottom CTA (Removed margins) -->
+                    <section class="bg-neutral-50 p-8 md:p-12 text-left space-y-6">
                         <p class="font-serif text-2xl text-neutral-800">"Principles don’t change with trends."</p>
                         <p class="text-neutral-600">They guide decisions when pressure is highest and visibility is lowest.</p>
                         <div class="pt-4">
@@ -368,7 +378,9 @@
                 </div>
             `,
             '/statement': `
-                <div class="space-y-8 animate-fade-in max-w-3xl mx-auto">
+                <!-- UNIFORM SPACING WRAPPER -->
+                <div class="space-y-12 md:space-y-16 animate-fade-in max-w-3xl mx-auto">
+                    
                     <header class="space-y-4 pb-8 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Statement of Record</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Founder Statement</h1>
@@ -391,7 +403,7 @@
                         
                         <p>I remain focused on building responsibly, protecting the people and partners who depend on the work, and moving forward without distraction.</p>
                         
-                        <div class="bg-neutral-50 p-12 text-center space-y-6 !mt-12">
+                        <div class="bg-neutral-50 p-8 md:p-12 text-left space-y-6">
                             <p class="font-serif text-2xl text-neutral-800">This statement is provided as a matter of record.<br>No further public commentary will be offered on this subject.</p>
                             <p class="text-xs text-neutral-500 uppercase tracking-widest">Date: December 14, 2025</p>
                         </div>
@@ -399,8 +411,10 @@
                 </div>
             `,
             '/contact': `
-                <div class="space-y-12 animate-fade-in max-w-2xl mx-auto">
-                    <header class="text-center space-y-4 pb-8">
+                <!-- UNIFORM SPACING WRAPPER -->
+                <div class="space-y-12 md:space-y-16 animate-fade-in max-w-2xl mx-auto">
+                    
+                    <header class="text-left space-y-4 pb-8">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Contact</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Contact</h1>
                         <p class="text-neutral-600 leading-relaxed">For professional inquiries, media requests, or partnership discussions, please use the appropriate channel below. Messages are reviewed and routed accordingly.</p>
@@ -412,7 +426,6 @@
                             <a href="mailto:business@chadwillis.me" class="text-sm text-neutral-500 hover:text-neutral-900 underline underline-offset-4">business@chadwillis.me</a>
                         </div>
                         
-                        <!-- Updated Media Section to Link to Guidelines -->
                         <div class="group border border-neutral-200 p-6 hover:border-neutral-900 transition-colors">
                             <h3 class="font-serif text-xl mb-2">Media & Press</h3>
                             <p class="text-sm text-neutral-600 mb-4">For inquiries, interviews, and content usage permissions.</p>
@@ -425,13 +438,14 @@
                         </div>
                     </div>
 
-                    <div class="text-center pt-8 border-t border-neutral-100">
+                    <div class="text-left pt-8 border-t border-neutral-100">
                         <p class="text-xs uppercase tracking-wider text-neutral-400">Serious inquiries only. Please be clear and concise.</p>
                     </div>
                 </div>
             `,
             '/media': `
-                <div class="space-y-12 animate-fade-in max-w-3xl mx-auto">
+                <!-- UNIFORM SPACING WRAPPER -->
+                <div class="space-y-12 md:space-y-16 animate-fade-in max-w-3xl mx-auto">
                     <header class="space-y-4 pb-8 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Press</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Media & Press Inquiries</h1>
@@ -502,7 +516,7 @@
                 </div>
             `,
             '/privacy': `
-                <div class="space-y-6 animate-fade-in max-w-3xl mx-auto">
+                <div class="space-y-12 md:space-y-16 animate-fade-in max-w-3xl mx-auto">
                     <header class="space-y-4 pb-4 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Legal</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Privacy Policy</h1>
@@ -654,7 +668,7 @@
                 </div>
             `,
             '/disclaimer': `
-                <div class="space-y-6 animate-fade-in max-w-3xl mx-auto">
+                <div class="space-y-12 md:space-y-16 animate-fade-in max-w-3xl mx-auto">
                     <header class="space-y-4 pb-4 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Legal</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Site Disclaimer</h1>
@@ -724,7 +738,7 @@
                 </div>
             `,
             '/terms': `
-                <div class="space-y-6 animate-fade-in max-w-3xl mx-auto">
+                <div class="space-y-12 md:space-y-16 animate-fade-in max-w-3xl mx-auto">
                     <header class="space-y-4 pb-4 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Legal</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Terms of Use</h1>
@@ -842,7 +856,7 @@
                 </div>
             `,
             '/cookies': `
-                <div class="space-y-8 animate-fade-in max-w-3xl mx-auto">
+                <div class="space-y-12 md:space-y-16 animate-fade-in max-w-3xl mx-auto">
                     <header class="space-y-4 pb-4 border-b border-neutral-100">
                         <h2 class="text-xs font-medium tracking-widest uppercase text-neutral-500">Legal</h2>
                         <h1 class="font-serif text-4xl md:text-5xl text-neutral-900">Cookie Notice</h1>
